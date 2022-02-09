@@ -39,7 +39,71 @@
     </ul>
     <a href="file:///C:/Users/s546904/Documents/GitHub/webapps-s22-assignment-3-Rajitha9595/aboutme.html">Click here for About me</a>
 
-</html>
+<hr>
+<h3>Physicial Activites</h3>
+<p>The following table illustrates regarding the sports that I am interested in and would like to suggest to my friends are Badminton,Throw ball, ping pong and tennikoit. <br> The first column should be the name of the sport/activity. The second column will be a location where you can participate in the sport/activity. The third column is the amount of money someone should expect to pay for any personal equipment needed.</p>
+<style>table,th,td{
+    border: 1px solid black;}
+   </style>
+<table>
+    <tr>
+        <th> Sports Name</th>
+        <th>Location</th>
+        <th>Amount</th>
+    </tr>
+    <tr>
+        <td>Badminton</td>
+        <td>Badminton court</td>
+        <td>$10-birdie, $100-Badminton Racquet</td>
+    </tr>
+    <tr>
+        <td>Throw Ball</td>
+        <td>Throw Ball Court</td>
+        <td>$50-Teeshirt</td>
+    </tr>
+    <tr>
+        <td>Ping Pong</td>
+        <td>Ping Pong Table</td>
+        <td>$50-Shoes</td>
+    </tr>
+    <tr>
+        <td>Tennikoit</td>
+        <td>Tennikoit court</td>
+        <td>$150-Tennikoit RIng</td>
+    </tr>
+</table>
+<hr>
+<h2>Code Fencing</h2>
+<blockquote>Dijkstra's algorithm is a greedy algorithm for the shortest path from a single vertex. It grows a spanning tree in the graph always adding the edge that connects the start vertex with a minimal path length to the spanning tree. Dijkstra's algorithm uses a priority queue of vertices key by the distance estimation. The distances from the start vertex are update by a relaxation process</blockquote>
+<a href="http://www.csl.mtu.edu/cs4321/www/Lectures/Lecture%2020%20-%20Dijkstra%20Algorithm.htm">Dijkstra's Algorithm</a>
+<pre>const int INF = 1000000000;
+    vector<vector<pair<int, int>>> adj;
+    
+    void dijkstra(int s, vector<int> & d, vector<int> & p) {
+        int n = adj.size();
+        d.assign(n, INF);
+        p.assign(n, -1);
+    
+        d[s] = 0;
+        set<pair<int, int>> q;
+        q.insert({0, s});
+        while (!q.empty()) {
+            int v = q.begin()->second;
+            q.erase(q.begin());
+    
+            for (auto edge : adj[v]) {
+                int to = edge.first;
+                int len = edge.second;
+    
+                if (d[v] + len < d[to]) {
+                    q.erase({d[to], to});
+                    d[to] = d[v] + len;
+                    p[to] = v;
+                    q.insert({d[to], to});
+                }
+            }
+        }
+    }</pre>
 </body>
 
 </html>
